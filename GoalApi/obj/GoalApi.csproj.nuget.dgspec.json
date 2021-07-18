@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jc\\source\\repos\\GoalApi\\GoalApi\\GoalApi.csproj": {}
+    "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\GoalApi\\GoalApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jc\\source\\repos\\GoalApi\\Compile\\Compile.csproj": {
+    "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\Compile\\Compile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jc\\source\\repos\\GoalApi\\Compile\\Compile.csproj",
+        "projectUniqueName": "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\Compile\\Compile.csproj",
         "projectName": "Compile",
-        "projectPath": "C:\\Users\\Jc\\source\\repos\\GoalApi\\Compile\\Compile.csproj",
+        "projectPath": "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\Compile\\Compile.csproj",
         "packagesPath": "C:\\Users\\Jc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jc\\source\\repos\\GoalApi\\Compile\\obj\\",
+        "outputPath": "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\Compile\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\Users\\Jc\\source\\repos\\GoalApi\\GoalApi\\GoalApi.csproj": {
+    "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\GoalApi\\GoalApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jc\\source\\repos\\GoalApi\\GoalApi\\GoalApi.csproj",
+        "projectUniqueName": "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\GoalApi\\GoalApi.csproj",
         "projectName": "GoalApi",
-        "projectPath": "C:\\Users\\Jc\\source\\repos\\GoalApi\\GoalApi\\GoalApi.csproj",
+        "projectPath": "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\GoalApi\\GoalApi.csproj",
         "packagesPath": "C:\\Users\\Jc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jc\\source\\repos\\GoalApi\\GoalApi\\obj\\",
+        "outputPath": "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\GoalApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -92,8 +92,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Jc\\source\\repos\\GoalApi\\Compile\\Compile.csproj": {
-                "projectPath": "C:\\Users\\Jc\\source\\repos\\GoalApi\\Compile\\Compile.csproj"
+              "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\Compile\\Compile.csproj": {
+                "projectPath": "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\Compile\\Compile.csproj"
               }
             }
           }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+ihzSzSpYE/DP5NlrJAE6VC1+aoCyUU3Hi3hkhQXeRs5u/umxL5KhKLVFdGmpEFdny92JKxfqJNQn8WWw3cW1g==",
+  "dgSpecHash": "SDSBpyhvmTVxoKdJZUKqhksu2vi9O+ZofMYp9nQTlNzM/GET7clhb5bHwMxtfvs4ZQDR1I0GtBjkQcYVkY/XsA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jc\\source\\repos\\GoalApi\\GoalApi\\GoalApi.csproj",
+  "projectFilePath": "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\GoalApi\\GoalApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jc\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Jc\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",

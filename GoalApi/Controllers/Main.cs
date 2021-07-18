@@ -29,9 +29,9 @@ namespace GoalApi.Controllers
                 true))
             {
                 Compile.Add("tbCustomers", customers).Save();
-                return Json(GoalResponse.Success("Create Customer"));
+                return Json(GoalResponse.Success("Create Customer").GetSuccess());
             }
-            return Json(GoalResponse.ModelError(result, GetResponse.Action.Insert, "Create Customer").GetError());
+                return Json(GoalResponse.ModelError(result, GetResponse.Action.Insert, "Create Customer").GetError());
         }
     }
 }

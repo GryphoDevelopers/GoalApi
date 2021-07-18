@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jc\\source\\repos\\GoalApi\\Compile\\Compile.csproj": {}
+    "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\Compile\\Compile.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jc\\source\\repos\\GoalApi\\Compile\\Compile.csproj": {
+    "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\Compile\\Compile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jc\\source\\repos\\GoalApi\\Compile\\Compile.csproj",
+        "projectUniqueName": "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\Compile\\Compile.csproj",
         "projectName": "Compile",
-        "projectPath": "C:\\Users\\Jc\\source\\repos\\GoalApi\\Compile\\Compile.csproj",
+        "projectPath": "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\Compile\\Compile.csproj",
         "packagesPath": "C:\\Users\\Jc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jc\\source\\repos\\GoalApi\\Compile\\obj\\",
+        "outputPath": "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\Compile\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jc\\AppData\\Roaming\\NuGet\\NuGet.Config",

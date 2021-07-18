@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "65EtIpr9ecJxYgCwOShOl8XyDfc7fgBaPksmNq41zryfaci297O7ClDd9JYU9xaa2y52oloJ86mnAubON6YXUw==",
+  "dgSpecHash": "BP+qiIzkwvILEaDUHxjWsVbBIFkqy5z6ktxuKEwqa9S4j+63GZL/lD/3ny5EGRIw7pPEVeEC2CUTfbwZSZqkvw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jc\\source\\repos\\GoalApi\\Compile\\Compile.csproj",
+  "projectFilePath": "C:\\Users\\Jc\\Documents\\Goal\\Projeto\\Web\\GoalApi\\Compile\\Compile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jc\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Jc\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
