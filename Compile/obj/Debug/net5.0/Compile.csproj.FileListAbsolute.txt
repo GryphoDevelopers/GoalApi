@@ -1,0 +1,12 @@
+C:\Users\Jc\source\repos\GoalApi\Compile\bin\Debug\net5.0\Compile.deps.json
+C:\Users\Jc\source\repos\GoalApi\Compile\bin\Debug\net5.0\Compile.dll
+C:\Users\Jc\source\repos\GoalApi\Compile\bin\Debug\net5.0\ref\Compile.dll
+C:\Users\Jc\source\repos\GoalApi\Compile\bin\Debug\net5.0\Compile.pdb
+C:\Users\Jc\source\repos\GoalApi\Compile\obj\Debug\net5.0\Compile.csprojAssemblyReference.cache
+C:\Users\Jc\source\repos\GoalApi\Compile\obj\Debug\net5.0\Compile.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jc\source\repos\GoalApi\Compile\obj\Debug\net5.0\Compile.AssemblyInfoInputs.cache
+C:\Users\Jc\source\repos\GoalApi\Compile\obj\Debug\net5.0\Compile.AssemblyInfo.cs
+C:\Users\Jc\source\repos\GoalApi\Compile\obj\Debug\net5.0\Compile.csproj.CoreCompileInputs.cache
+C:\Users\Jc\source\repos\GoalApi\Compile\obj\Debug\net5.0\Compile.dll
+C:\Users\Jc\source\repos\GoalApi\Compile\obj\Debug\net5.0\ref\Compile.dll
+C:\Users\Jc\source\repos\GoalApi\Compile\obj\Debug\net5.0\Compile.pdb
