@@ -23,19 +23,13 @@ namespace Goal.Compile
 
     public class GCompile
     {
-
         public enum ActionType
         {
             Insert
         }
-
-        class Info
-        {
-            public ActionType Type { get; set; }
-            public bool Cond { get; set; }
-            public bool RetList { get; set; }
-        }
-
+        public ActionType actionType { get; set; }
+        public bool Cond { get; set; }
+        public bool RetList { get; set; }
         private string Query { get; set; }
         public GCompile Add(string table, Object obj)
         {
@@ -74,12 +68,7 @@ namespace Goal.Compile
                     ++i;
                 }
                 Query = "INSERT INTO " + table + " (" + (string.Join(", ", _fields)).ToUpper() + ") VALUES(" + (string.Join(", ", values)) + ")";
-                new Info()
-                {
-                    Type = ActionType.Insert,
-                    Cond = false,
-                    RetList = false
-                };
+                actionType = ActionType.Insert;
                 return this;
             }
             catch (Exception)
@@ -122,19 +111,16 @@ namespace Goal.Compile
         {
             try
             {
-
                 var connection = new Config.Config().getAuth().Connection();
                 MySqlCommand cmd = connection.CreateCommand();
                 connection.Open();
-
-                switch(Info.Type)
-
-
-                if (Info.Type == "Insert")
+                switch (actionType)
                 {
-                    cmd.CommandText = Query;
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
+                    case ActionType.Insert:
+                        cmd.CommandText = Query;
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                        break;
                 }
             }
             catch (Exception e)
