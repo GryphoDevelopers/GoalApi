@@ -102,7 +102,7 @@ namespace Goal.Compile
             return null;
         }
 
-        public GCompile If(int i)
+        public GCompile If()
         {
             return null;
         }

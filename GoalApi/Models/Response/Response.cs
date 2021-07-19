@@ -1,10 +1,9 @@
-﻿using Newtonsoft.Json.Linq;
-using Response.Error;
+﻿using Response.Error;
 using Response.Success;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text.Json;
 
 namespace Goal.Response
 {
@@ -14,6 +13,11 @@ namespace Goal.Response
         public static GetResponse ModelError(List<ValidationResult> result, GetResponse.Action action, string request)
         {
             return response.ModelError(result, action, request);
+        }
+
+        public static GetResponse ExceptionError(Exception exception)
+        {
+            return response.ExceptionError(exception);
         }
 
         public static GetResponse Success(string request)
@@ -31,6 +35,20 @@ namespace Goal.Response
         public enum Action
         {
             Insert
+        }
+
+        public GetResponse ExceptionError(Exception exception)
+        {
+            List<Error> list = new List<Error>();
+            list.Add(new Error()
+            {
+                Status = 400,
+                Action = exception.StackTrace,
+                Message = exception.Message,
+                Request = exception.Source
+            });
+            this.ListError = list;
+            return this;
         }
 
         public GetResponse ModelError(List<ValidationResult> result , Action action, string request)
