@@ -1,0 +1,23 @@
+{
+    "development": {
+        "username": "root",
+        "password": "root",
+        "database": "dbGoalDev",
+        "host": "localhost",
+        "dialect": "mysql"
+    },
+    "test": {
+        "username": "root",
+        "password": "root",
+        "database": "dbGoalDev",
+        "host": "localhost",
+        "dialect": "mysql"
+    },
+    "production": {
+        "username": "be9bd4a700dabd",
+        "password": "2de162e3",
+        "database": "database_production",
+        "host": "us-cdbr-east-04.cleardb.com",
+        "dialect": "mysql"
+    }
+}
