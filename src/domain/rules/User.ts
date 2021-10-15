@@ -11,7 +11,8 @@ interface UserAttributes {
   preferredName: string | null;
 }
 
-const sequelize = 
+
+// const sequelize = databaseConnect()
 
 interface UserCreationAttributes extends Optional<UserAttributes, "id"> { }
 
