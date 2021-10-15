@@ -4,6 +4,7 @@ import {
   Optional,
   DataTypes,
 } from "sequelize";
+import { useGoalContext } from "../goalContext";
 
 interface UserAttributes {
   id: number;
@@ -11,8 +12,9 @@ interface UserAttributes {
   preferredName: string | null;
 }
 
+const { databaseConnect } = useGoalContext();
 
-// const sequelize = databaseConnect()
+ const sequelize = databaseConnect()
 
 interface UserCreationAttributes extends Optional<UserAttributes, "id"> { }
 
