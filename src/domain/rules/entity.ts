@@ -1,8 +1,8 @@
 import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm'
-@Entity("user")
-export class User {
+
+export class System {
     @PrimaryColumn("uuid")
-    id! : string;
-    @Column("varchar")
-    name! : string
+    id!: string;
+    @PrimaryColumn("boolean")
+    isDeleted!: boolean;
 }

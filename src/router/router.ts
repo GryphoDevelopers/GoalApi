@@ -1,8 +1,8 @@
 import express from 'express'
+import { useAuthController } from '../controllers';
 export const router = express.Router();
-
 router.get('/teste', (req, res) => {
-    res.send('wiki')
+    useAuthController.Auth(req, res)
 })
 
 
