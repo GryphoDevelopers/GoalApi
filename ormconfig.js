@@ -1,5 +1,4 @@
 require('dotenv/config')
-
 const database = {
     PRODUCTION: {
         host: process.env.PROD_DATABASE_HOST,
@@ -16,7 +15,6 @@ const database = {
         database: process.env.DEV_DATABASE_NAME
     }
 }
-
 module.exports = {
     type: "mysql",
     ...database[process.env.NODE_ENV],

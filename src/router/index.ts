@@ -1,3 +1,1 @@
-export const teste = (a : string) => {
-    console.log(a)
-}
+export { router } from './router'

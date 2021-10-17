@@ -28,17 +28,24 @@ export abstract class Core {
     public getErrors(): string[] {
         return this._errors;
     }
-    public addError(value: string) {
+    protected addError(value: string) {
         this._errors.push(value)
     }
-    public addErrors(values: string[]) {
+    protected addErrors(values: string[]) {
         values.map((val) => {
             this.addError(val)
         })
     }
-    public async ApiResponse<T = any | undefined>(
+    public static jsonResponse(
         res: express.Response,
+        code: number,
+        message: string
+    ) {
+        return res.status(code).json({ message })
+    }
+    public async ApiResponse<T = any | undefined>(
         req: express.Request,
+        res: express.Response,
         code: number,
         define?: { title?: string, detail?: string },
         obj?: T) {
@@ -47,8 +54,7 @@ export abstract class Core {
                 res.type('application/json').json(obj)
                 return this.ok(res, obj)
             };
-
-            return;
+            return this.ok(res)
         }
         return res.status(code).json(new validationProblemDetails(
             req.originalUrl, define?.title,
@@ -58,9 +64,14 @@ export abstract class Core {
     }
     public ok<T = any | undefined>(
         res: express.Response,
-        obj? : T) {
+        obj?: T) {
         return res.sendStatus(201).json(obj)
     }
+    public unauthorized(
+        res: express.Response,
+        message?: string) {
+        return Core.jsonResponse(res, 401, message ? message : 'Unauthorized');
+      }
     public created(
         res: express.Response) {
         return res.sendStatus(201)
