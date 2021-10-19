@@ -4,7 +4,7 @@ export function useMainValidator() {
         return _errors;
     }
     const addError = (value: string) => {
-        _errors.push(value)
+        (_errors).push(value)
     }
     const addErrors = (values: string[]) => {
         values.map((item) => {
@@ -12,7 +12,7 @@ export function useMainValidator() {
         })
     }
     const isValid = (): boolean => {
-        if (_errors !== undefined && _errors.length > 0)
+        if (_errors !== undefined && (_errors).length > 0)
             return false
         return true
     }
