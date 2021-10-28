@@ -1,5 +1,0 @@
-# GoalApi for Goal
-
-
-//Endpoints
-
