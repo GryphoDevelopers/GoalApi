@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoalWebApi.Migrations
 {
     [DbContext(typeof(GoalContext))]
-    [Migration("20211028085327_Initial")]
-    partial class Initial
+    [Migration("20211103041404_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

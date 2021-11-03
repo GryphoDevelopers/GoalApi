@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace GoalWebApi.Application.Commands.Handlers
 {
     public class UserCommandHandler : CommandActions,
-                            IRequestHandler<AddUserCommand, MainValidation>
+                            IRequestHandler<NewAccessAuthenticateCommand, MainValidation>
     {
         private readonly IMediator _mediator;
         private readonly GoalRepository<Users> _usersRepository;
@@ -21,7 +21,7 @@ namespace GoalWebApi.Application.Commands.Handlers
             _usersRepository = usersRepository;
         }
 
-        public Task<MainValidation> Handle(AddUserCommand request, CancellationToken cancellationToken)
+        public Task<MainValidation> Handle(NewAccessAuthenticateCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

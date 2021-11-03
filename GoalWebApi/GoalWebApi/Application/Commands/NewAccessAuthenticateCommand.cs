@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace GoalWebApi.Application.Commands
 {
-    public class AddUserCommand : IRequest<MainValidation>
+    public class NewAccessAuthenticateCommand : IRequest<MainValidation>
     {
-        public AddUserCommand(Guid id, string name, string surname, string email, string password)
+        public NewAccessAuthenticateCommand(Guid id, string name, string surname, string email, string password)
         {
             Id = id;
             Name = name;

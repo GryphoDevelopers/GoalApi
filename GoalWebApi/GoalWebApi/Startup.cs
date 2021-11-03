@@ -1,15 +1,19 @@
 ﻿using GoalWebApi.Application.Commands;
 using GoalWebApi.Application.Commands.Handlers;
+using GoalWebApi.Application.Queries;
 using GoalWebApi.Data;
 using GoalWebApi.Models.Validations;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 namespace GoalWebApi
 {
@@ -60,9 +64,29 @@ namespace GoalWebApi
                 });
 
             });
-            services.AddScoped<IRequestHandler<AddUserCommand, MainValidation>, UserCommandHandler>();
 
+            var key = Encoding.ASCII.GetBytes("fedaf7d8863b48e197b9287d492b708e");
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+            services.AddScoped<IRequestHandler<NewAccessAuthenticateCommand, MainValidation>, UserCommandHandler>();
             services.AddScoped(typeof(GoalRepository<>));
+            services.AddScoped(typeof(AuthQueries));
             services.AddDbContext<GoalContext>();
             services.AddMediatR(typeof(Startup));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -80,7 +104,8 @@ namespace GoalWebApi
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("MyPolicy");
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

@@ -15,15 +15,7 @@ namespace GoalWebApi.Controllers
         [Route("")]
         public IActionResult GetAllUsers()
         {
-            return ApiResponse();
-        }
-
-        [HttpPost]
-        [Route("add-user")]
-        [AllowAnonymous]
-        public IActionResult AddUser()
-        {
-            return ApiResponse();
+            return ApiResponse("Autorizado");
         }
     }
 }

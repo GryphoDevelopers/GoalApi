@@ -22,6 +22,7 @@ C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\bin\Deb
 C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\obj\Debug\net5.0\GoalWebApi.csprojAssemblyReference.cache
 C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\obj\Debug\net5.0\GoalWebApi.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\obj\Debug\net5.0\GoalWebApi.AssemblyInfoInputs.cache
 C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\obj\Debug\net5.0\GoalWebApi.AssemblyInfo.cs
@@ -37,4 +38,10 @@ C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\obj\Deb
 C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\obj\Debug\net5.0\ref\GoalWebApi.dll
 C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\obj\Debug\net5.0\GoalWebApi.pdb
 C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\obj\Debug\net5.0\GoalWebApi.genruntimeconfig.cache
-C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\obj\Debug\net5.0\GoalWebApi.csprojAssemblyReference.cache
+C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Jc\Documents\Goal\Desenvolvimento\GoalApi\GoalWebApi\GoalWebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

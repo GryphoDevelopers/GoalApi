@@ -11,22 +11,22 @@ namespace GoalWebApi.Data
     {
         private readonly GoalContext _context;
         public IUnitOfWork UnitOfWork => _context;
+
         public GoalRepository(GoalContext context)
         {
             _context = context;
         }
-
-        public void Adicionar(T objeto)
+        public void Add(T objeto)
         {
             _context.Set<T>().Add(objeto);
         }
 
-        public void Atualizar(T objeto)
+        public void Update(T objeto)
         {
             _context.Set<T>().Update(objeto);
         }
 
-        public IQueryable<T> ObterTodos()
+        public IQueryable<T> GetAll()
         {
             return _context.Set<T>().AsQueryable();
         }
