@@ -17,6 +17,7 @@ namespace GoalWebApi.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
+                //var connection = "Server=localhost;Port=3306;Database=dbGoalDev;Uid=root;Pwd=root;";
                 var connection = "Server=localhost;Port=3306;Database=dbGoalDev;Uid=root;Pwd=root;";
                 optionsBuilder.UseMySql(connection, ServerVersion.AutoDetect(connection));
             }
@@ -27,3 +28,8 @@ namespace GoalWebApi.Data
         }
     }
 }
+
+
+
+// butAyb3R9k
+//3Um4H4NRez
