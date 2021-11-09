@@ -84,7 +84,7 @@ namespace GoalWebApi
                 };
             });
 
-            services.AddScoped<IRequestHandler<NewAccessAuthenticateCommand, MainValidation>, UserCommandHandler>();
+            services.AddScoped<IRequestHandler<NewAccessAuthenticateCommand, MainValidation>, AuthenticateCommandHandler>();
             services.AddScoped(typeof(GoalRepository<>));
             services.AddScoped(typeof(AuthQueries));
             services.AddDbContext<GoalContext>();
@@ -113,5 +113,3 @@ namespace GoalWebApi
         }
     }
 }
-
-//?{?}CrS|

@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\3aetim\\Source\\Repos\\GoalApi\\GoalWebApi\\GoalWebApi\\GoalWebApi.csproj": {}
+    "C:\\Users\\Jc\\Documents\\Goal\\Desenvolvimento\\GoalApi\\GoalWebApi\\GoalWebApi\\GoalWebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\3aetim\\Source\\Repos\\GoalApi\\GoalWebApi\\GoalWebApi\\GoalWebApi.csproj": {
+    "C:\\Users\\Jc\\Documents\\Goal\\Desenvolvimento\\GoalApi\\GoalWebApi\\GoalWebApi\\GoalWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\3aetim\\Source\\Repos\\GoalApi\\GoalWebApi\\GoalWebApi\\GoalWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Jc\\Documents\\Goal\\Desenvolvimento\\GoalApi\\GoalWebApi\\GoalWebApi\\GoalWebApi.csproj",
         "projectName": "GoalWebApi",
-        "projectPath": "C:\\Users\\3aetim\\Source\\Repos\\GoalApi\\GoalWebApi\\GoalWebApi\\GoalWebApi.csproj",
-        "packagesPath": "C:\\Users\\3aetim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\3aetim\\Source\\Repos\\GoalApi\\GoalWebApi\\GoalWebApi\\obj\\",
+        "projectPath": "C:\\Users\\Jc\\Documents\\Goal\\Desenvolvimento\\GoalApi\\GoalWebApi\\GoalWebApi\\GoalWebApi.csproj",
+        "packagesPath": "C:\\Users\\Jc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jc\\Documents\\Goal\\Desenvolvimento\\GoalApi\\GoalWebApi\\GoalWebApi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\3aetim\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Jc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -114,7 +109,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
