@@ -1,11 +1,13 @@
 ﻿using GoalWebApi.Application.Commands;
 using GoalWebApi.Application.Commands.Handlers;
 using GoalWebApi.Application.Queries;
+using GoalWebApi.Application.Queries.Interfaces;
 using GoalWebApi.Data;
 using GoalWebApi.Models.Validations;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -83,10 +85,11 @@ namespace GoalWebApi
                     ValidateAudience = false
                 };
             });
+            services.AddScoped<IRequestHandler<AddProductsCommand, MainValidation>, ProductsCommandHandler>();
 
-            services.AddScoped<IRequestHandler<NewAccessAuthenticateCommand, MainValidation>, AuthenticateCommandHandler>();
             services.AddScoped(typeof(GoalRepository<>));
             services.AddScoped(typeof(AuthQueries));
+            services.AddScoped<IProductsQueries, ProductsQueries>();
             services.AddDbContext<GoalContext>();
             services.AddMediatR(typeof(Startup));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -99,13 +102,21 @@ namespace GoalWebApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Goal - Api"));
             }
+            app.UseExceptionHandler(c => c.Run(async context =>
+            {
+                var exception = context.Features
+                    .Get<IExceptionHandlerPathFeature>()
+                    .Error;
+                var response = new { error = exception.Message };
+                await context.Response.WriteAsJsonAsync(response);
+            }));
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Goal - Api"));
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("MyPolicy");
             app.UseAuthentication();
-            app.UseAuthorization();
+            app.UseAuthorization(); 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

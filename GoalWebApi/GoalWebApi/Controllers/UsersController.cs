@@ -1,14 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace GoalWebApi.Controllers
 {
     [ApiController]
-    [Route("goal/api/v1/users")]
+    [Route("goal/api/users")]
     public class UsersController : MainController
     {
         [HttpGet]

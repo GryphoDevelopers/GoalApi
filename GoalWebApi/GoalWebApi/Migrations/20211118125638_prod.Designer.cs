@@ -3,74 +3,21 @@ using System;
 using GoalWebApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GoalWebApi.Migrations
 {
     [DbContext(typeof(GoalContext))]
-    partial class GoalContextModelSnapshot : ModelSnapshot
+    [Migration("20211118125638_prod")]
+    partial class prod
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.11");
-
-            modelBuilder.Entity("CategoriesDetailsItens", b =>
-                {
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("DetailsItensId")
-                        .HasColumnType("char(36)");
-
-                    b.HasKey("CategoryId", "DetailsItensId");
-
-                    b.HasIndex("DetailsItensId");
-
-                    b.ToTable("CategoriesDetailsItens");
-                });
-
-            modelBuilder.Entity("GoalWebApi.Domain.Entity.Categories", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<int>("Fid")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext");
-
-                    b.Property<bool>("SysIsDeleted")
-                        .HasColumnType("tinyint(1)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("GoalWebApi.Domain.Entity.DetailsItens", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<int>("Name")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("SysIsDeleted")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("Value")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DetailsItens");
-                });
 
             modelBuilder.Entity("GoalWebApi.Domain.Entity.Products", b =>
                 {
@@ -144,21 +91,6 @@ namespace GoalWebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("CategoriesDetailsItens", b =>
-                {
-                    b.HasOne("GoalWebApi.Domain.Entity.Categories", null)
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GoalWebApi.Domain.Entity.DetailsItens", null)
-                        .WithMany()
-                        .HasForeignKey("DetailsItensId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("GoalWebApi.Domain.Entity.Products", b =>
