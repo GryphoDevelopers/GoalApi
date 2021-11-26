@@ -34,8 +34,7 @@ namespace GoalWebApi
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
-            services.AddCors();
-            services.AddControllers();
+          
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Goal Retail Ecommerce - API", Version = "v1" });
@@ -86,13 +85,15 @@ namespace GoalWebApi
                 };
             });
             services.AddScoped<IRequestHandler<AddProductsCommand, MainValidation>, ProductsCommandHandler>();
-
             services.AddScoped(typeof(GoalRepository<>));
             services.AddScoped(typeof(AuthQueries));
+            services.AddScoped(typeof(ProductsQueries));
             services.AddScoped<IProductsQueries, ProductsQueries>();
             services.AddDbContext<GoalContext>();
             services.AddMediatR(typeof(Startup));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddCors();
+            services.AddControllers();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

@@ -15,6 +15,18 @@ namespace GoalWebApi.Domain.Entity
             CategoryId = categoryId;
             UserId = userId;
         }
+        public void Atualizar(string title, string desc, decimal price, int amount, Guid categoryId, Guid userId, Categories category, List<DetailsItens> details, Users seller)
+        {
+            Title = title;
+            Desc = desc;
+            Price = price;
+            Amount = amount;
+            CategoryId = categoryId;
+            UserId = userId;
+            Category = category;
+            Details = details;
+            Seller = seller;
+        }
         public string Title { get; private set; }
         public string Desc { get; private set; }
         public decimal Price { get; private  set; }

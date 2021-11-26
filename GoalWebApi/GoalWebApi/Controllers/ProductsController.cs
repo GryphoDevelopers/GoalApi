@@ -22,6 +22,8 @@ namespace GoalWebApi.Controllers
         }
         [HttpGet]
         [Route("")]
+        [ProducesResponseType(typeof(ProductDetailsModel), 200)]
+
         public async Task<IActionResult> GetAllProducts(int page, int pageSize, [FromQuery] ProductsFilter query)
         {
             return ApiResponse(await _productsQueries.GetProducts(page, pageSize, query));
@@ -29,6 +31,20 @@ namespace GoalWebApi.Controllers
         [HttpPost]
         [Route("{userId}/add-product")]
         public async Task<IActionResult> AddProducts(Guid userId, [FromBody] ProductDetailsModel model)
+        {
+            var command = new AddProductsCommand(model.Title, model.Desc, model.Price, model.Amount, model.Id, userId, model.CategoryId, model.Details);
+            return ApiResponse();
+        }
+        [HttpPut]
+        [Route("{userId}/update-product")] 
+        public async Task<IActionResult> UpdateProducts([FromBody] ProductDetailsModel model)
+        {
+            //var command = new AddProductsCommand(model.Title, model.Desc, model.Price, model.Amount, model.Id, userId, model.CategoryId, model.Details);
+            return ApiResponse();
+        }
+        [HttpDelete]
+        [Route("{userId}/{productId}/remove-product")]
+        public async Task<IActionResult> RemoveProduct(Guid userId, [FromBody] ProductDetailsModel model)
         {
             var command = new AddProductsCommand(model.Title, model.Desc, model.Price, model.Amount, model.Id, userId, model.CategoryId, model.Details);
             return ApiResponse();
