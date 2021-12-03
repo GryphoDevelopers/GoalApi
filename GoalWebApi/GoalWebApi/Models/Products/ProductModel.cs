@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GoalWebApi.Models.Products
 {
-    public class ProductDetailsModel
+    public class ProductModel
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
@@ -13,7 +11,7 @@ namespace GoalWebApi.Models.Products
         public decimal Price { get; set; }
         public int Amount { get; set; }
         public Guid CategoryId { get; set; }
-        public Guid UserId { get; set; }
-        public List<DetailsModel> Details { get; set; }
+        public Guid SellerId { get; set; }
+        public List<ProductsDetailsListModel> DetailsList { get; set; }
     }
 }

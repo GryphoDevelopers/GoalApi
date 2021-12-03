@@ -23,9 +23,6 @@ namespace GoalWebApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<int>("Fid")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
@@ -83,7 +80,7 @@ namespace GoalWebApi.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(65,30)");
 
-                    b.Property<Guid?>("SellerId")
+                    b.Property<Guid>("SellerId")
                         .HasColumnType("char(36)");
 
                     b.Property<bool>("SysIsDeleted")
@@ -91,9 +88,6 @@ namespace GoalWebApi.Migrations
 
                     b.Property<string>("Title")
                         .HasColumnType("longtext");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("char(36)");
 
                     b.HasKey("Id");
 
@@ -136,6 +130,9 @@ namespace GoalWebApi.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("longtext");
 
+                    b.Property<Guid>("SellerId")
+                        .HasColumnType("char(36)");
+
                     b.Property<string>("Surname")
                         .HasColumnType("longtext");
 
@@ -164,7 +161,9 @@ namespace GoalWebApi.Migrations
 
                     b.HasOne("GoalWebApi.Domain.Entity.Users", "Seller")
                         .WithMany()
-                        .HasForeignKey("SellerId");
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
 

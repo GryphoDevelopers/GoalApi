@@ -4,9 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using System.Threading.Tasks;
 using System;
-using GoalWebApi.Models.Products;
 using GoalWebApi.Application.Commands;
 using System.Linq;
+using GoalWebApi.Models.Products;
+using GoalWebApi.Application.Queries.Interfaces;
+using GoalWebApi.Extensions;
+
 namespace GoalWebApi.Controllers
 {
     [ApiController]
@@ -14,40 +17,72 @@ namespace GoalWebApi.Controllers
     public class ProductsController : MainController
     {
         private readonly IMediator _mediator;
-        private readonly ProductsQueries _productsQueries;
-        public ProductsController(IMediator mediator, ProductsQueries productsQueries)
+        private readonly IProductsQueries _productsQueries;
+        public ProductsController(IMediator mediator, IProductsQueries productsQueries)
         {
             _mediator = mediator;
             _productsQueries = productsQueries;
         }
+
         [HttpGet]
         [Route("")]
-        [ProducesResponseType(typeof(ProductDetailsModel), 200)]
+        [ProducesResponseType(typeof(ValidationProblemDetails), 400)]
+        [ProducesResponseType(typeof(PagedResult<ProductModel>), 200)]
+        public async Task<IActionResult> GetAllProducts(int page = 1, int pageSize = 10, [FromQuery] ProductsFilter query = null)
+        {
+            return ApiResponse(await _productsQueries.GetAllProducts(page, pageSize, query));
+        }
 
-        public async Task<IActionResult> GetAllProducts(int page, int pageSize, [FromQuery] ProductsFilter query)
-        {
-            return ApiResponse(await _productsQueries.GetProducts(page, pageSize, query));
-        }
         [HttpPost]
-        [Route("{userId}/add-product")]
-        public async Task<IActionResult> AddProducts(Guid userId, [FromBody] ProductDetailsModel model)
+        [Route("add-product")]
+        [ProducesResponseType(typeof(ValidationProblemDetails), 400)]
+        [ProducesResponseType(typeof(ProductModel), 200)]
+        public async Task<IActionResult> AddProducts([FromBody] ProductModel model)
         {
-            var command = new AddProductsCommand(model.Title, model.Desc, model.Price, model.Amount, model.Id, userId, model.CategoryId, model.Details);
-            return ApiResponse();
+            if (model.Id == Guid.Empty) model.Id = Guid.NewGuid();
+            var command = new AddUpdateProductCommand(model.Id, model.Title, model.Desc,
+                model.Price, model.Amount, model.CategoryId, model.SellerId, model.DetailsList);
+            var valid = await _mediator.Send(command);
+            if (!valid.isValid())
+            {
+                AddErrors(valid.Errors);
+                return ApiResponse();
+            }
+            return ApiResponse(model);
         }
+        
         [HttpPut]
-        [Route("{userId}/update-product")] 
-        public async Task<IActionResult> UpdateProducts([FromBody] ProductDetailsModel model)
+        [Route("update-product")]
+        [ProducesResponseType(typeof(ValidationProblemDetails), 400)]
+        [ProducesResponseType(typeof(ProductModel), 200)]
+        public async Task<IActionResult> UpdateProducts([FromBody] ProductModel model)
         {
-            //var command = new AddProductsCommand(model.Title, model.Desc, model.Price, model.Amount, model.Id, userId, model.CategoryId, model.Details);
-            return ApiResponse();
+            if (model.Id == Guid.Empty) model.Id = Guid.NewGuid();
+            var command = new AddUpdateProductCommand(model.Id, model.Title, model.Desc,
+                model.Price, model.Amount, model.CategoryId, model.SellerId, model.DetailsList);
+            var valid = await _mediator.Send(command);
+            if (!valid.isValid())
+            {
+                AddErrors(valid.Errors);
+                return ApiResponse();
+            }
+            return ApiResponse(model);
         }
+
         [HttpDelete]
         [Route("{userId}/{productId}/remove-product")]
-        public async Task<IActionResult> RemoveProduct(Guid userId, [FromBody] ProductDetailsModel model)
+        public async Task<IActionResult> RemoveProduct()
         {
-            var command = new AddProductsCommand(model.Title, model.Desc, model.Price, model.Amount, model.Id, userId, model.CategoryId, model.Details);
             return ApiResponse();
+        }
+
+        [HttpGet]
+        [Route("{userId}/my-products")]
+        [ProducesResponseType(typeof(ValidationProblemDetails), 400)]
+        [ProducesResponseType(typeof(PagedResult<ProductModel>), 200)]
+        public async Task<IActionResult> MyProducts(Guid userId, int page = 1, int pageSize = 10, [FromQuery] ProductsFilter query = null)
+        {
+            return ApiResponse(await _productsQueries.GetMyProducts(userId, page, pageSize, query));
         }
     }
 }

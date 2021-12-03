@@ -84,11 +84,23 @@ namespace GoalWebApi
                     ValidateAudience = false
                 };
             });
-            services.AddScoped<IRequestHandler<AddProductsCommand, MainValidation>, ProductsCommandHandler>();
+
+
+            //HANDLERS
+
+            services.AddScoped<IRequestHandler<AddUpdateProductCommand, MainValidation>, ProductCommandHandler>();
+            
+            services.AddScoped<IRequestHandler<ChangeUserTypeCommand, MainValidation>, UserCommandHandler>();
+            
+            services.AddScoped<IRequestHandler<AddOrderCommand, MainValidation>, OrderCommandHandler>();
+
+            services.AddScoped<IUsersQueries, UsersQueries>();
+            services.AddScoped(typeof(UsersQueries));
+
+
+
             services.AddScoped(typeof(GoalRepository<>));
             services.AddScoped(typeof(AuthQueries));
-            services.AddScoped(typeof(ProductsQueries));
-            services.AddScoped<IProductsQueries, ProductsQueries>();
             services.AddDbContext<GoalContext>();
             services.AddMediatR(typeof(Startup));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

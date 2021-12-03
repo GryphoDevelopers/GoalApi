@@ -15,6 +15,7 @@ namespace GoalWebApi.Models.Validations
 
         public MainValidation()
         {
+            Errors = new List<string>();
         }
 
         public void AddError(string error)

@@ -16,7 +16,7 @@ namespace GoalWebApi.Controllers
     public class AuthController : MainController
     {
         private readonly AuthQueries _authQueries;
-        
+
         public AuthController(AuthQueries authQueries)
         {
             _authQueries = authQueries;
@@ -25,6 +25,9 @@ namespace GoalWebApi.Controllers
         [HttpPost]
         [Route("")]
         [AllowAnonymous]
+
+
+
         public IActionResult Authenticate(AuthenticateModel model)
         {
             if (!TryValidateModel(model))
@@ -39,6 +42,17 @@ namespace GoalWebApi.Controllers
                 return ApiResponse();
             }
             var token = TokenService.GenerateToken(user);
+            new AccessModel
+            {
+                Id = user.Id,
+                IsSeller = (user.SellerId == Guid.Empty ? false : true),
+                SellerId = user.SellerId,
+                Name = user.Name,
+                Surname = user.Surname,
+                Token = token
+            };
+
+
             return ApiResponse(new { token = token });
         }
         [HttpPost]
@@ -55,13 +69,14 @@ namespace GoalWebApi.Controllers
                 }
                 var context = new GoalContext();
                 context.Add(new Users
-                {
-                    Id = Guid.NewGuid(),
-                    Email = model.Email,
-                    Name = model.Name,
-                    Password = model.Password,
-                    Surname = model.Surname
-                });
+                (
+                    Guid.NewGuid(),
+                   model.Surname,
+                     model.Email,
+                    model.Password,
+                    Guid.Empty,
+                   model.Name
+                ));
                 context.SaveChanges();
                 return ApiResponse(model);
             }

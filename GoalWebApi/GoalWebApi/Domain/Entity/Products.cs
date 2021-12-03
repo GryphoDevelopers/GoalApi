@@ -5,7 +5,11 @@ namespace GoalWebApi.Domain.Entity
 {
     public class Products : Entity
     {
-        public Products(Guid id, string title, string desc, decimal price, int amount, Guid categoryId, Guid userId)
+
+        public Products() { }
+
+
+        public Products(Guid id, string title, string desc, decimal price, int amount, Guid categoryId, Guid sellerId, List<DetailsItens> details)
         {
             Id = id;
             Title = title;
@@ -13,29 +17,31 @@ namespace GoalWebApi.Domain.Entity
             Price = price;
             Amount = amount;
             CategoryId = categoryId;
-            UserId = userId;
+            SellerId = sellerId;
+            Details = details;
         }
-        public void Atualizar(string title, string desc, decimal price, int amount, Guid categoryId, Guid userId, Categories category, List<DetailsItens> details, Users seller)
+
+        public void Update(Guid id, string title, string desc, decimal price, int amount, Guid categoryId, Guid sellerId, List<DetailsItens> details)
         {
+            Id = id;
             Title = title;
             Desc = desc;
             Price = price;
             Amount = amount;
             CategoryId = categoryId;
-            UserId = userId;
-            Category = category;
+            SellerId = sellerId;
             Details = details;
-            Seller = seller;
         }
+
         public string Title { get; private set; }
         public string Desc { get; private set; }
         public decimal Price { get; private  set; }
         public int Amount { get; private set; }
         public Guid CategoryId { get; private set; }
-        public Guid UserId { get; private set; }
-        //Ef core 
-        public virtual Categories Category { get; set; }
-        public virtual List<DetailsItens> Details { get; private set; }
-        public virtual Users Seller { get; set; }
+        public Guid SellerId { get; private set; }
+        //Ef core S
+        public virtual Categories Category { get; private set; }
+        public virtual List<DetailsItens> Details { get; set; }
+        public virtual Users Seller { get; private set; }
     }
 }

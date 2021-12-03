@@ -14,42 +14,87 @@ namespace GoalWebApi.Application.Queries
     public class ProductsQueries : IProductsQueries
     {
         private readonly GoalRepository<Products> _productsRepository;
-        public ProductsQueries(GoalRepository<Products> productsRepository)
+        private readonly GoalRepository<Users> _usersRepository;
+
+        public ProductsQueries(GoalRepository<Products> productsRepository, GoalRepository<Users> usersRepository)
         {
             _productsRepository = productsRepository;
+            _usersRepository = usersRepository;
         }
-        public async Task<PagedResult<ProductDetailsModel>> GetProducts(int page, int pageSize, ProductsFilter query = null)
+
+        public async Task<PagedResult<ProductModel>> GetAllProducts(int page, int pageSize, ProductsFilter query = null)
         {
-            var productsQuery = _productsRepository.GetAll();
-            if (query != null)
+            var products = _productsRepository.GetAll();
+            return await products.Select(x => new ProductModel
             {
-                if (query.CategoryId != Guid.Empty)
+                Id = x.Id,
+                Amount = x.Amount,
+                CategoryId = x.CategoryId,
+                Desc = x.Desc,
+                DetailsList = x.Details.Select(x => new ProductsDetailsListModel
                 {
-                    productsQuery = productsQuery.Where(x => x.CategoryId == query.CategoryId);
-                }
-            }
-            var products = await productsQuery.GetPagination(page, pageSize);
-            return new PagedResult<ProductDetailsModel>()
-            {
-                List = products.List.Select(x => new ProductDetailsModel {
-                    Amount = x.Amount,
-                    CategoryId = x.CategoryId,
-                    Price = x.Price,
-                    Desc = x.Desc,
-                    Details = x.Details.Select(x => new DetailsModel
-                    {
-                        Id = x.Id,
-                        Name = x.Name,
-                        ProductId = x.ProductId,
-                        Value = x.Value
-                        
-                    }).ToList(),
                     Id = x.Id,
-                    Title = x.Title,
-                    UserId = x.UserId
-                }).ToList()
-            };
-                
+                    Name = x.Name,
+                    ProductId = x.ProductId,
+                    Value = x.Value
+
+                }).ToList(),
+                Price = x.Price,
+                SellerId = x.SellerId,
+                Title = x.Title
+
+
+            }).GetPagination(page, pageSize);
         }
+
+        public async Task<ProductModel> GetProductById(Guid id)
+        {
+            var product = _productsRepository.GetAll().Where(x => x.Id == id).FirstOrDefault();
+            return new ProductModel
+            {
+                Id = product.Id,
+                Amount = product.Amount,
+                CategoryId = product.CategoryId,
+                Price = product.Price,
+                Desc = product.Desc,
+                DetailsList = product.Details.Select(x => new ProductsDetailsListModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    ProductId = x.ProductId,
+                    Value = x.Value
+                }).ToList(),
+                SellerId = product.SellerId,
+                Title = product.Title
+            };
+        }
+
+        public async Task<PagedResult<ProductModel>> GetMyProducts(Guid sellerId, int page, int pageSize, ProductsFilter query = null)
+        {
+
+            var seller = _usersRepository.Where(x => x.SellerId == sellerId).FirstOrDefault();
+            if (seller == null)
+                return null;
+            var products = _productsRepository.GetAll().Where(x => x.SellerId == sellerId);
+            return await products.Select(x => new ProductModel
+            {
+                Id = x.Id,
+                Amount = x.Amount,
+                CategoryId = x.CategoryId,
+                Desc = x.Desc,
+                DetailsList = x.Details.Select(x => new ProductsDetailsListModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    ProductId = x.ProductId,
+                    Value = x.Value
+
+                }).ToList(),
+                Price = x.Price,
+                SellerId = x.SellerId,
+                Title = x.Title
+            }).GetPagination(page, pageSize);
+        }
+
     }
 }

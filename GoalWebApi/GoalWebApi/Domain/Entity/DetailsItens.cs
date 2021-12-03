@@ -7,15 +7,9 @@ namespace GoalWebApi.Domain.Entity
 {
     public class DetailsItens : Entity
     {
-        public DetailsItens(string name, string value, Guid productId)
+        public DetailsItens(Guid id, string name, string value, Guid productId)
         {
-            Name = name;
-            Value = value;
-            ProductId = productId;
-        }
-        public void Add(string name, string value, Guid productId)
-        {
-            Id = Guid.NewGuid();
+            Id = id;
             Name = name;
             Value = value;
             ProductId = productId;
